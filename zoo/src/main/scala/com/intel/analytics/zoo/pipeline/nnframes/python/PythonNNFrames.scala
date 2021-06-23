@@ -253,6 +253,31 @@ class PythonNNFrames[T: ClassTag](implicit ev: TensorNumeric[T]) extends PythonZ
     model.transform(dataset)
   }
 
+  def getXGBClassifier(): XGBClassifier = {
+    val model = new XGBClassifier()
+    model
+  }
+
+  def setXGBClassifierNthread(model: XGBClassifier, value: Int): Unit = {
+    model.setNthread(value)
+  }
+
+  def setXGBClassifierNumRound(model: XGBClassifier, value: Int): Unit = {
+    model.setNumRound(value)
+  }
+
+  def fitXGBClassifier(model: XGBClassifier, df : DataFrame): XGBClassifierModel = {
+    model.fit(df)
+  }
+
+  def setXGBClassifierNumWorkers(model: XGBClassifier, value: Int): Unit = {
+    model.setNumWorkers(value)
+  }
+
+  def setXGBClassifierMissing(model: XGBClassifier, value: Int): Unit = {
+    model.setMissing(value)
+  }
+
   def getXGBRegressor(): XGBRegressor = {
     val model = new XGBRegressor()
     model
