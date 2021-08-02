@@ -3,10 +3,10 @@ FROM ubuntu:18.04 AS graphene
 
 RUN env DEBIAN_FRONTEND=noninteractive apt-get update && \
     env DEBIAN_FRONTEND=noninteractive apt-get install -y autoconf bison build-essential coreutils gawk git libcurl4-openssl-dev libprotobuf-c-dev protobuf-c-compiler python3-protobuf wget
-RUN git clone https://github.com/analytics-zoo/graphene.git /graphene
+RUN git clone https://github.com/DiegoCao/graphene /graphene
 RUN cd /graphene && \
-    git fetch origin branch-0.2 && \
-    git checkout branch-0.2
+    git fetch origin newbranch && \
+    git checkout newbranch
 RUN cd /graphene/Pal/src/host/Linux-SGX && \
     git clone https://github.com/intel/SGXDataCenterAttestationPrimitives.git linux-sgx-driver && \
     cd linux-sgx-driver && \
